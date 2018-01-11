@@ -1,26 +1,15 @@
 version: '2'
 services:
-  kafka1:
-    image: spotify/kafka
+  zookeeper:
+    image: wurstmeister/zookeeper
     ports:
-      - "9092:9092"
-      - "2182:2181"
-    environment:
-      ADVERTISED_HOST: "ip route get 1 | awk '{print $NF;exit}'"
-      ADVERTISED_PORT: 9092
-  kafka2:
-    image: spotify/kafka
+      - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
     ports:
-      - "9093:9093"
-      - "2183:2181"
+      - "9092"
     environment:
-      ADVERTISED_HOST: "ip route get 1 | awk '{print $NF;exit}'"
-      ADVERTISED_PORT: 9093
-  kafka3:
-    image: spotify/kafka
-    ports:
-      - "9094:9094"
-      - "2184:2181"
-    environment:
-      ADVERTISED_HOST: "ip route get 1 | awk '{print $NF;exit}'"
-      ADVERTISED_PORT: 9094
+      KAFKA_ADVERTISED_HOST_NAME: <your ip>
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
