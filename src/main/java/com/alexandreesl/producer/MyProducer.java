@@ -13,9 +13,10 @@ public class MyProducer {
   public MyProducer() {
 
     Properties kafkaProps = new Properties();
-    kafkaProps.put("bootstrap.servers", "localhost:32769,localhost:32770");
+    kafkaProps.put("bootstrap.servers", "localhost:32783,localhost:32784");
     kafkaProps.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
     kafkaProps.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+    kafkaProps.put("acks","all");
     producer = new KafkaProducer<String, String>(kafkaProps);
 
   }
