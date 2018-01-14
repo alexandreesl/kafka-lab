@@ -19,11 +19,11 @@ public class MyConsumer {
     StringBuilder builder = new StringBuilder();
     builder.append(ip.getHostAddress());
     builder.append(":");
-    builder.append("32786");
+    builder.append("32813");
     builder.append(",");
     builder.append(ip.getHostAddress());
     builder.append(":");
-    builder.append("32787");
+    builder.append("32814");
 
 
     Properties kafkaProps = new Properties();
@@ -38,7 +38,7 @@ public class MyConsumer {
 
   public void consume() {
 
-    consumer.subscribe(Collections.singletonList(" test"));
+    consumer.subscribe(Collections.singletonList("test"));
 
     try {
       while (true) {
