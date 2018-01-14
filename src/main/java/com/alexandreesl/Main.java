@@ -14,16 +14,28 @@ public class Main {
 
     String operation = scanner.next();
 
+    System.out.println("Please enter topic name :");
+
+    String topic = scanner.next();
+
     if (operation.equals("1")) {
 
       MyProducer producer = new MyProducer();
 
-      producer.sendMessage("test", "mysuperkey", "my value");
+      System.out.println("Please enter key :");
+
+      String key = scanner.next();
+
+      System.out.println("Please enter value :");
+
+      String value = scanner.next();
+
+      producer.sendMessage(topic, key, value);
     } else if (operation.equals("2")) {
 
       MyConsumer consumer = new MyConsumer();
 
-      consumer.consume();
+      consumer.consume(topic);
 
 
     }
