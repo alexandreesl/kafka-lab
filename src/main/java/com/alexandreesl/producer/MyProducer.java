@@ -13,25 +13,24 @@ public class MyProducer {
   public MyProducer() {
 
     Properties kafkaProps = new Properties();
-    kafkaProps.put("bootstrap.servers", "localhost:32783,localhost:32784");
+    kafkaProps.put("bootstrap.servers", "localhost:32768,localhost:32769");
     kafkaProps.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
     kafkaProps.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-    kafkaProps.put("acks","all");
+    kafkaProps.put("acks", "all");
     producer = new KafkaProducer<String, String>(kafkaProps);
 
   }
 
 
-  public void sendMessage(String topic, String key, String message) {
+  public void sendMessage(String topic, String key, String message) throws Exception {
 
     ProducerRecord<String, String> record = new ProducerRecord<>(topic,
         key, message);
     try {
-      producer.send(record);
+      producer.send(record).get();
     } catch (Exception e) {
       throw e;
     }
 
   }
-
 }
