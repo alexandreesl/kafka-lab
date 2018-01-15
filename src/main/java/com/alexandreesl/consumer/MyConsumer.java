@@ -34,7 +34,7 @@ public class MyConsumer {
     kafkaProps.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
     kafkaProps
         .put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-    kafkaProps.put("auto.commit.offset", "false");
+    kafkaProps.put("enable.auto.commit", "false");
     consumer = new KafkaConsumer<String, String>(kafkaProps);
 
   }
