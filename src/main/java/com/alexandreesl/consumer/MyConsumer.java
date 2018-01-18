@@ -1,5 +1,6 @@
 package com.alexandreesl.consumer;
 
+import com.alexandreesl.listener.MyConsumerRebalanceInterface;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Collections;
@@ -41,7 +42,7 @@ public class MyConsumer {
 
   public void consume(String topic) {
 
-    consumer.subscribe(Collections.singletonList(topic));
+    consumer.subscribe(Collections.singletonList(topic), new MyConsumerRebalanceInterface());
 
     try {
       while (true) {
