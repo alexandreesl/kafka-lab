@@ -12,6 +12,7 @@ services:
       KAFKA_ADVERTISED_HOST_NAME: ${MY_IP}
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_DELETE_TOPIC_ENABLE: "true"
+      KAFKA_LOG_CLEANER_ENABLED: "true"
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
