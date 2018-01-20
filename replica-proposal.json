@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "partitions": [
+    {
+      "topic": "mytopic",
+      "partition": 2,
+      "replicas": [
+        1005
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "mytopic",
+      "partition": 1,
+      "replicas": [
+        1004
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    },
+    {
+      "topic": "mytopic",
+      "partition": 0,
+      "replicas": [
+        1006
+      ],
+      "log_dirs": [
+        "any"
+      ]
+    }
+  ]
+}
